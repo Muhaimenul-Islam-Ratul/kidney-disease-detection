@@ -1,0 +1,2 @@
+Model+Extension/*.h5 filter=lfs diff=lfs merge=lfs -text
+Model+Extension/*.pt filter=lfs diff=lfs merge=lfs -text

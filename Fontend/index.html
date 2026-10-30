@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Kidney Care Portal | Nephrology Diagnostic Center</title>
+    <!-- Google Fonts: Plus Jakarta Sans, Outfit and Hind Siliguri for cute modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="lang-en">
+    <!-- Main Top Navigation Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <div class="logo-icon-wrapper">
+                    <!-- Kidney Graphic SVG -->
+                    <svg class="header-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                            fill="currentColor" />
+                    </svg>
+                    <span class="bd-flag-badge">BD</span>
+                </div>
+                <div class="logo-text">
+                    <h1 data-key="appName">Bangladesh Kidney Care Portal</h1>
+                    <p class="tagline" data-key="appTagline">Digital Nephrology CT Diagnostic & Health Center</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <!-- Interactive Language Switcher Toggle -->
+                <div class="lang-switcher">
+                    <button id="langToggleBtn" class="lang-btn" title="Switch Language / ভাষা পরিবর্তন">
+                        <span class="lang-icon">🌐</span>
+                        <span id="langText">বাংলা</span>
+                    </button>
+                </div>
+
+                <div class="system-status">
+                    <span class="status-indicator online"></span>
+                    <span class="status-text" data-key="systemStatus">Diagnostic System Online</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main App Container -->
+    <main class="app-container">
+        <!-- Emergency Bangladesh Healthcare Banner -->
+        <div class="bd-helpline-bar">
+            <div class="helpline-item">
+                <span class="helpline-badge">16263</span>
+                <span class="helpline-label" data-key="helpline16263">24/7 National Health Service Hotline
+                    (16263)</span>
+            </div>
+            <div class="helpline-divider"></div>
+            <div class="helpline-item">
+                <span class="helpline-badge alt">333</span>
+                <span class="helpline-label" data-key="helpline333">National Citizen Information Center (333)</span>
+            </div>
+        </div>
+
+        <div class="grid-layout">
+            <!-- Left Column Container -->
+            <div class="control-column">
+
+                <!-- SECTION A: Input Controls (Form + Upload + Tips) -->
+                <div id="inputControlsSection">
+                    <!-- Patient Metadata Form Card -->
+                    <div class="dashboard-card patient-card">
+                        <div class="card-header">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <h2 data-key="patientInfoTitle">Patient Medical Profile</h2>
+                        </div>
+                        <div class="patient-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label data-key="lblPatientName">Patient Name</label>
+                                    <input type="text" id="patientNameInput" placeholder="e.g. Md. Anis Ahmed"
+                                        value="Md. Anis Ahmed">
+                                </div>
+                                <div class="form-group short">
+                                    <label data-key="lblPatientAge">Age</label>
+                                    <input type="number" id="patientAgeInput" placeholder="45" value="45">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label data-key="lblPatientGender">Gender</label>
+                                    <select id="patientGenderInput">
+                                        <option value="Male" data-key="optMale">Male</option>
+                                        <option value="Female" data-key="optFemale">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label data-key="lblRegNo">Patient ID</label>
+                                    <div class="id-input-wrapper">
+                                        <span class="id-prefix">CB-BD-KCP-</span>
+                                        <input type="text" id="patientRegInput" placeholder="88421" value="88421">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CT Scan Upload Card -->
+                    <div class="dashboard-card upload-card">
+                        <div class="card-header">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            <h2 data-key="uploadCardTitle">Abdominal CT Scan Upload</h2>
+                        </div>
+
+                        <div class="upload-dropzone" id="dropzone">
+                            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                            <div class="dropzone-content">
+                                <div class="cloud-icon-box">
+                                    <svg class="upload-cloud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.8">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                </div>
+                                <p class="dropzone-main-text" data-key="dropzoneMain">Drag & drop CT scan image here</p>
+                                <p class="dropzone-sub-text" data-key="dropzoneSub">Supported: High-resolution JPG, PNG
+                                    or DICOM</p>
+                                <button class="btn btn-secondary" id="selectFileBtn" data-key="btnSelectFile">Select
+                                    Scan File</button>
+                            </div>
+                            <div class="dropzone-preview" id="imagePreviewContainer" style="display: none;">
+                                <img id="imagePreview" src="" alt="CT Scan Preview">
+                                <button class="remove-image-btn" id="removeImgBtn" title="Remove File">&times;</button>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block" id="runAnalysisBtn" disabled>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            <span class="btn-text" data-key="btnRunAnalysis">Run Diagnostic Analysis</span>
+                        </button>
+                    </div>
+
+                    <!-- Essential Kidney Health Advice Card -->
+                    <div class="dashboard-card info-card">
+                        <div class="card-header mini">
+                            <span class="info-icon">💧</span>
+                            <h3 data-key="tipsTitle">Kidney Health Maintenance Tips</h3>
+                        </div>
+                        <ul class="tips-list">
+                            <li data-key="tip1">• Drink 2.5 to 3 Liters of safe, clean water daily.</li>
+                            <li data-key="tip2">• Limit dietary salt and excess sodium intake.</li>
+                            <li data-key="tip3">• Avoid taking painkiller medications without medical advice.</li>
+                            <li data-key="tip4">• Test your Serum Creatinine level regularly.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SECTION B: Report Left Column (Active on Result State) -->
+                <div id="reportLeftSection" style="display: none;">
+
+                    <!-- Patient Summary Meta Card -->
+                    <div class="dashboard-card patient-summary-card">
+                        <div class="card-header mini">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <h3 data-key="patientProfileSummaryTitle">Patient Profile Summary</h3>
+                        </div>
+                        <div class="patient-summary-grid">
+                            <div class="ps-item">
+                                <span class="ps-label" data-key="lblPName">Patient Name:</span>
+                                <span class="ps-valHighlight" id="outPatientName">Md. Anis Ahmed</span>
+                            </div>
+                            <div class="ps-item">
+                                <span class="ps-label" data-key="lblPAge">Age & Gender:</span>
+                                <span class="ps-val" id="outPatientAgeGender">45 Yrs | Male</span>
+                            </div>
+                            <div class="ps-item">
+                                <span class="ps-label" data-key="lblPReg">Patient ID:</span>
+                                <span class="ps-val" id="outPatientReg">CB-BD-KCP-88421</span>
+                            </div>
+                            <div class="ps-item">
+                                <span class="ps-label" data-key="lblPDate">Exam Date:</span>
+                                <span class="ps-val" id="outReportDate">01-08-2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Patient Diagnostic Guidance & Medical Advice Box -->
+                    <div class="patient-advice-card" id="patientAdviceCard">
+                        <div class="advice-header">
+                            <span class="advice-icon">🩺</span>
+                            <div>
+                                <h3 data-key="adviceTitle">Patient Diagnostic Guidance & Advice</h3>
+                                <p class="advice-sub" data-key="adviceSub">Clear breakdown for understanding medical
+                                    findings</p>
+                            </div>
+                        </div>
+                        <div class="advice-body">
+                            <div class="advice-explanation" id="adviceExplanation">
+                                <!-- Dynamic text populated by JS -->
+                            </div>
+                            <div class="advice-steps">
+                                <h4 data-key="recommendedStepsTitle">📋 Recommended Action Steps:</h4>
+                                <ul id="adviceStepsList">
+                                    <!-- Dynamic step bullets -->
+                                </ul>
+                            </div>
+                            <div class="doctor-type-badge" id="doctorTypeBadge">
+                                <span class="dt-icon">👨‍⚕️</span>
+                                <span id="doctorTypeText">Recommended Specialist: Nephrologist / Urologist</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Classification Probabilities & Segmentation Stats -->
+                    <div class="stats-card">
+                        <h3 data-key="probTitle">Pathology Classification Confidence</h3>
+                        <div class="prob-list" id="probList">
+                            <!-- Dynamic bar rows injected by JS -->
+                        </div>
+
+                        <div class="segment-stats-area" id="segmentStatsSection">
+                            <h3 class="section-divider-title" data-key="segStatsTitle">Affected Region Measurement (%
+                                Area)</h3>
+                            <div class="segment-metric-row">
+                                <span class="metric-label" data-key="lblCystArea">Cyst Region Area:</span>
+                                <span class="metric-value" id="statCystArea">0.0%</span>
+                            </div>
+                            <div class="segment-metric-row">
+                                <span class="metric-label" data-key="lblStoneArea">Stone Region Area:</span>
+                                <span class="metric-value" id="statStoneArea">0.0%</span>
+                            </div>
+                            <div class="segment-metric-row">
+                                <span class="metric-label" data-key="lblTumorArea">Tumor Region Area:</span>
+                                <span class="metric-value" id="statTumorArea">0.0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right Column: Results & High-Res Visualizer -->
+            <div class="results-column">
+                <div class="dashboard-card results-card" id="printableReportArea">
+                    <div class="card-header report-header-main">
+                        <div class="report-header-left">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <h2 data-key="reportTitle">Clinical Diagnostic Pathology Report</h2>
+                        </div>
+                        <div class="report-date-badge">
+                            <span id="reportDateText">Date: 01-08-2026</span>
+                        </div>
+                    </div>
+
+                    <!-- State 1: Placeholder / Ready State -->
+                    <div class="results-state" id="stateWelcome">
+                        <div class="welcome-inner">
+                            <div class="pulse-icon-wrapper">
+                                <svg class="pulse-heartbeat" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                                </svg>
+                            </div>
+                            <h3 data-key="welcomeTitle">Awaiting CT Scan Image</h3>
+                            <p class="welcome-sub-prompt" data-key="welcomeSub">Please select or drop a CT scan image on
+                                the left panel to begin diagnostic evaluation.</p>
+                        </div>
+                    </div>
+
+                    <!-- State 2: ULTRA UNIQUE HIGH-TECH CLINICAL LOADING SCANNER -->
+                    <div class="results-state" id="stateLoading" style="display: none;">
+                        <div class="loading-inner-unique">
+                            <div class="radar-scan-wrapper">
+                                <div class="radar-ring r1"></div>
+                                <div class="radar-ring r2"></div>
+                                <div class="radar-ring r3"></div>
+                                <div class="scan-beam"></div>
+                                <div class="radar-center-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <h3 class="loading-title-glow" data-key="loadingTitle">High-Precision CT Scanner Pipeline
+                                Active</h3>
+                            <p id="loadingStatusText" class="loading-status-badge">Processing scan matrix & computing
+                                volumetric tissue features...</p>
+
+                            <div class="unique-progress-container">
+                                <div class="unique-progress-bar">
+                                    <div class="unique-progress-fill" id="loadingProgress"></div>
+                                </div>
+                                <span class="unique-pct-readout" id="loadingPctReadout">15%</span>
+                            </div>
+
+                            <div class="loading-steps-pills">
+                                <div class="lsp-item active" id="lsp1">
+                                    <span class="lsp-dot"></span>
+                                    <span data-key="lsp1Text">Image Normalization & Denoising</span>
+                                </div>
+                                <div class="lsp-item" id="lsp2">
+                                    <span class="lsp-dot"></span>
+                                    <span data-key="lsp2Text">Pathology Feature Assessment</span>
+                                </div>
+                                <div class="lsp-item" id="lsp3">
+                                    <span class="lsp-dot"></span>
+                                    <span data-key="lsp3Text">Volumetric Area Segmentation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- State 3: Diagnostic Report Output -->
+                    <div class="results-state" id="stateReport" style="display: none;">
+
+                        <!-- Primary Diagnostic Findings Banner -->
+                        <div class="diagnosis-banner" id="diagnosisBanner">
+                            <div class="banner-top">
+                                <div class="banner-icon-area">
+                                    <svg class="banner-icon" id="diagnosisIcon" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <div class="banner-title-group">
+                                    <span class="banner-label" data-key="primaryResultLabel">Primary Diagnostic
+                                        Finding</span>
+                                    <h3 class="banner-value" id="diagnosisValue">Renal Tumor Detected</h3>
+                                </div>
+                                <div class="banner-right-badges">
+                                    <div class="risk-badge" id="riskBadge">
+                                        <span class="risk-dot"></span>
+                                        <span class="risk-text" id="riskText">High Priority Medical Concern</span>
+                                    </div>
+                                    <div class="banner-conf-area">
+                                        <span class="conf-percent" id="diagnosisConf">94.8%</span>
+                                        <span class="conf-label" data-key="confLabel">Diagnostic Accuracy</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="banner-desc" id="diagnosisDesc">Tissue analysis confirms solid mass structure
+                                matching renal tumor criteria.</p>
+                        </div>
+
+                        <!-- ENLARGED CT SCAN VISUAL ANALYSIS CARD -->
+                        <div class="visuals-card large-visual-card">
+                            <div class="visuals-header">
+                                <div class="vh-title-row">
+                                    <span class="vh-icon">🔬</span>
+                                    <h3 data-key="scanVisualTitle">CT Scan Visual Analysis (High-Resolution View)</h3>
+                                </div>
+                            </div>
+                            <div class="tabs-header">
+                                <button class="tab-btn active" data-tab="tabOriginal">
+                                    <span data-key="tabOrig">Original Scan</span>
+                                </button>
+                                <button class="tab-btn" data-tab="tabDetection">
+                                    <span data-key="tabDet">Anomaly Localization</span>
+                                </button>
+                                <button class="tab-btn" data-tab="tabSegmentation">
+                                    <span data-key="tabSeg">Tissue Segmentation Map</span>
+                                </button>
+                            </div>
+                            <div class="tab-content-area large-view">
+                                <div class="tab-pane active" id="tabOriginal">
+                                    <img class="result-img large-img" id="imgOriginal" src="" alt="Original CT Scan">
+                                </div>
+                                <div class="tab-pane" id="tabDetection">
+                                    <img class="result-img large-img" id="imgDetection" src=""
+                                        alt="Anomaly Localization">
+                                </div>
+                                <div class="tab-pane" id="tabSegmentation">
+                                    <img class="result-img large-img" id="imgSegmentation" src=""
+                                        alt="Tissue Segmentation Map">
+                                </div>
+                            </div>
+                            <div class="segmentation-legend" id="segLegend" style="display: none;">
+                                <span class="legend-title" data-key="legendTitle">Color Key:</span>
+                                <div class="legend-items">
+                                    <div class="legend-item"><span class="legend-color color-cyst"></span> <span
+                                            data-key="legCyst">Cyst Region</span></div>
+                                    <div class="legend-item"><span class="legend-color color-stone"></span> <span
+                                            data-key="legStone">Stone Region</span></div>
+                                    <div class="legend-item"><span class="legend-color color-tumor"></span> <span
+                                            data-key="legTumor">Tumor Region</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hospital Contacts Bar -->
+                        <div class="bd-hospital-contacts">
+                            <div class="contacts-left">
+                                <span class="c-badge" data-key="contactTitle">🏥 Emergency Doctor Assistance</span>
+                                <p data-key="contactDesc">Call 16263 anytime for 24/7 medical consultation in
+                                    Bangladesh.</p>
+                            </div>
+                            <div class="contacts-right">
+                                <a href="tel:16263" class="btn-call-hotline" data-key="btnCallHotline">📞 Call 16263
+                                    Hotline</a>
+                            </div>
+                        </div>
+
+                        <!-- Action Footer: Print & Reset -->
+                        <div class="report-footer">
+                            <button class="btn btn-primary" id="printReportBtn">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                                    <path
+                                        d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                                    </path>
+                                    <rect x="6" y="14" width="12" height="8"></rect>
+                                </svg>
+                                <span data-key="btnPrintReport">Print / Save Medical Report</span>
+                            </button>
+                            <button class="btn btn-secondary" id="resetBtn">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21.5 2v6h-6M2.1 12a10 10 0 0 1 15-6.7L2.5 16" />
+                                </svg>
+                                <span data-key="btnReset">Examine New CT Scan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ULTRA-UNIQUE CUTE BEST DESIGN FOOTER -->
+    <footer class="app-footer-unique">
+        <div class="footer-glass-bar">
+            <div class="fg-left">
+                <span class="fg-copy" data-key="footerCopy">&copy; 2026 Bangladesh Kidney Care Portal</span>
+            </div>
+
+            <div class="fg-team-badge">
+                <span>Designed & Developed by
+                    <strong class="team-brand">Team Compile Breakers</strong>
+            </div>
+
+            <div class="fg-right">
+                <span class="fg-disclaimer" data-key="footerDisclaimer">⚠️ Clinical Diagnostic Portal • Authorized
+                    Nephrology Evaluation</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
